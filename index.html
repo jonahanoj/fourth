@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jonah Gann Fourth Grade Portfolio</title>
+  <script src="https://kit.fontawesome.com/7622da097b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <style>
+    @media screen and (min-width: 769px) {
+
+      .modal-card,
+      .modal-content {
+        margin: 0 auto;
+        max-height: calc(100vh - 40px);
+        max-width: 1024px;
+        width: auto;
+      }
+
+      a[target="_blank"]:after {
+        font-family: "FontAwesome";
+        content: " \f35d";
+        position: relative;
+        top: -5px;
+        font-size: .75rem;
+      }
+
+      a[data-target]:after {
+        font-family: "Font Awesome 5 Free";
+        content: " \f27a";
+        position: relative;
+        top: -5px;
+        font-size: .75rem;
+      }
+  </style>
+</head>
+
+<body>
   <section class="section">
     <div class="container">
       <h1 class="title">
@@ -18,7 +48,7 @@
     </div>
   </section>
   <section class="section">
-    <div class="columns is-mobile is-multiline">
+    <div class="columns is-multiline">
 
       <div class="column is-one-third">
         <div class="box">
@@ -44,8 +74,49 @@
         <div class="box">
           <h3 class="title is-size-4">Math</h3>
           <ul>
-            <li>Khan Unit Mastery Reports</li>
+            <li><a class="modal-button" data-target="modal-khan-math-fourth">Khan Academy Fourth Grade Math</a></li>
+            <li><a class="modal-button" data-target="modal-education-com-fourth-math">Education.com fourth grade math</a></li>
+            <li><a class="modal-button" data-target="modal-education-com-fifth-math">Education.com fifth grade math</a></li>
           </ul>
+          
+          <div id="modal-khan-math-fourth" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <p class="image">
+                <img src="static/screenshots/khan_math_fourth.png">
+              </p>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+
+          <div id="modal-education-com-fourth-math" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <p class="image">
+                <img src="static/screenshots/education_com_fourth_math.jpg">
+              </p>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+
+          <div id="modal-education-com-fifth-math" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <p class="image">
+                <img src="static/screenshots/education_com_fifth_math.png">
+              </p>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+
+
+
+
+
+
+
+
+
         </div>
       </div>
 
@@ -99,7 +170,7 @@
             <li>WorkBook</li>
             <li>Experiments</li>
             <li>Research Paper</li>
-            <li>Experiment Summarys</li>
+            <li>Experiment Summaries</li>
           </ul>
         </div>
       </div>
@@ -121,12 +192,65 @@
           <h3 class="title is-size-4">Art</h3>
           <ul>
             <li>Drawing Book</li>
-            <li><a href="art.html">Portfolio of Art</a></li>
+            <li><a href="art.html">Art Gallery</a></li>
           </ul>
         </div>
       </div>
 
     </div>
   </section>
-  </body>
+  <script>
+    // Utils
+    function getAll(selector) {
+      var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
+
+      return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
+    }
+
+    // Modals
+    var rootEl = document.documentElement;
+    var $modals = getAll('.modal');
+    var $modalButtons = getAll('.modal-button');
+    var $modalCloses = getAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button');
+
+    if ($modalButtons.length > 0) {
+      $modalButtons.forEach(function ($el) {
+        $el.addEventListener('click', function () {
+          var target = $el.dataset.target;
+          openModal(target);
+        });
+      });
+    }
+
+    if ($modalCloses.length > 0) {
+      $modalCloses.forEach(function ($el) {
+        $el.addEventListener('click', function () {
+          closeModals();
+        });
+      });
+    }
+
+    function openModal(target) {
+      var $target = document.getElementById(target);
+      rootEl.classList.add('is-clipped');
+      $target.classList.add('is-active');
+    }
+
+    function closeModals() {
+      rootEl.classList.remove('is-clipped');
+      $modals.forEach(function ($el) {
+        $el.classList.remove('is-active');
+      });
+    }
+
+    document.addEventListener('keydown', function (event) {
+      var e = event || window.event;
+
+      if (e.keyCode === 27) {
+        closeModals();
+      }
+    });
+  </script>
+</body>
+
 </html>
