@@ -1,0 +1,25 @@
+@media screen and (min-width: 769px) {
+    .modal-card,
+    .modal-content {
+      margin: 0 auto;
+      max-height: calc(100vh - 40px);
+      max-width: 1024px;
+      width: auto;
+    }
+  }
+
+  a[target="_blank"]:after {
+    font-family: "FontAwesome";
+    content: " \f35d";
+    position: relative;
+    top: -5px;
+    font-size: .75rem;
+  }
+
+  a[data-target]:after {
+    font-family: "Font Awesome 5 Free";
+    content: " \f27a";
+    position: relative;
+    top: -5px;
+    font-size: .75rem;
+  }

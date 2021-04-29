@@ -7,33 +7,7 @@
   <title>Jonah Gann Fourth Grade Portfolio</title>
   <script src="https://kit.fontawesome.com/7622da097b.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-  <style>
-    @media screen and (min-width: 769px) {
-
-      .modal-card,
-      .modal-content {
-        margin: 0 auto;
-        max-height: calc(100vh - 40px);
-        max-width: 1024px;
-        width: auto;
-      }
-
-      a[target="_blank"]:after {
-        font-family: "FontAwesome";
-        content: " \f35d";
-        position: relative;
-        top: -5px;
-        font-size: .75rem;
-      }
-
-      a[data-target]:after {
-        font-family: "Font Awesome 5 Free";
-        content: " \f27a";
-        position: relative;
-        top: -5px;
-        font-size: .75rem;
-      }
-  </style>
+  <link rel="stylesheet" href="static/style.css">
 </head>
 
 <body>
@@ -54,8 +28,8 @@
         <div class="box">
           <h3 class="title is-size-4">Reading</h3>
           <ul>
-            <li>Booklist</li>
-            <li>Summaries</li>
+            <li><a class="button is-rounded" href="books.html">
+                Booklist</a></li>
           </ul>
         </div>
       </div>
@@ -75,10 +49,12 @@
           <h3 class="title is-size-4">Math</h3>
           <ul>
             <li><a class="modal-button" data-target="modal-khan-math-fourth">Khan Academy Fourth Grade Math</a></li>
-            <li><a class="modal-button" data-target="modal-education-com-fourth-math">Education.com fourth grade math</a></li>
-            <li><a class="modal-button" data-target="modal-education-com-fifth-math">Education.com fifth grade math</a></li>
+            <li><a class="modal-button" data-target="modal-education-com-fourth-math">Education.com fourth grade
+                math</a></li>
+            <li><a class="modal-button" data-target="modal-education-com-fifth-math">Education.com fifth grade math</a>
+            </li>
           </ul>
-          
+
           <div id="modal-khan-math-fourth" class="modal">
             <div class="modal-background"></div>
             <div class="modal-content">
@@ -199,58 +175,7 @@
 
     </div>
   </section>
-  <script>
-    // Utils
-    function getAll(selector) {
-      var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
-
-      return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
-    }
-
-    // Modals
-    var rootEl = document.documentElement;
-    var $modals = getAll('.modal');
-    var $modalButtons = getAll('.modal-button');
-    var $modalCloses = getAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button');
-
-    if ($modalButtons.length > 0) {
-      $modalButtons.forEach(function ($el) {
-        $el.addEventListener('click', function () {
-          var target = $el.dataset.target;
-          openModal(target);
-        });
-      });
-    }
-
-    if ($modalCloses.length > 0) {
-      $modalCloses.forEach(function ($el) {
-        $el.addEventListener('click', function () {
-          closeModals();
-        });
-      });
-    }
-
-    function openModal(target) {
-      var $target = document.getElementById(target);
-      rootEl.classList.add('is-clipped');
-      $target.classList.add('is-active');
-    }
-
-    function closeModals() {
-      rootEl.classList.remove('is-clipped');
-      $modals.forEach(function ($el) {
-        $el.classList.remove('is-active');
-      });
-    }
-
-    document.addEventListener('keydown', function (event) {
-      var e = event || window.event;
-
-      if (e.keyCode === 27) {
-        closeModals();
-      }
-    });
-  </script>
+  <script src="static/scripts.js"></script>
 </body>
 
 </html>
