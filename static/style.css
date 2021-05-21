@@ -8,7 +8,7 @@
     }
   }
 
-  a[target="_blank"]:after {
+  a[target="_blank"]:not(.img):after {
     font-family: "FontAwesome";
     content: " \f35d";
     position: relative;
