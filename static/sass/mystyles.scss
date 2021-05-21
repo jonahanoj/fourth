@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-
 // Set your brand colors
 $purple: #8A4D76;
 $dark-blue: #0364a5;
@@ -19,5 +18,31 @@ $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
 $body-background-color: $beige-lighter;
+
+@media screen and (min-width: 769px) {
+    .modal-card,
+    .modal-content {
+      margin: 0 auto;
+      max-height: calc(100vh - 40px);
+      max-width: 1024px;
+      width: auto;
+    }
+  }
+
+  a[target="_blank"]:not(.img):after {
+    font-family: "FontAwesome";
+    content: " \f35d";
+    position: relative;
+    top: -5px;
+    font-size: .75rem;
+  }
+
+  a[data-target]:after {
+    font-family: "Font Awesome 5 Free";
+    content: " \f27a";
+    position: relative;
+    top: -5px;
+    font-size: .75rem;
+  }
 
 @import "../mybulma/bulma.sass";
