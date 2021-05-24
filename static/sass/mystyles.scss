@@ -1,23 +1,25 @@
 @charset "utf-8";
 
 // Set your brand colors
-$purple: #8A4D76;
-$dark-blue: #0364a5;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+$white: #ffffff;
+$light-green: #2a9d8f;
+$light-blue: #f4a261;
+$bright-green: #e76f51;
+$dark-green: #264653;
 
 // Update Bulma's global variables
 // $family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $dark-blue;
+$grey-dark: $dark-green;
+$subtitle-color: $light-blue;
+$primary: $white;
+$link: $light-green;
+$title-color: $bright-green;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
+$body-background-color: #264653;
+$box-background-color: #ffffff;
 
 @media screen and (min-width: 769px) {
     .modal-card,
